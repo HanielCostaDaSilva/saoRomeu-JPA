@@ -18,22 +18,23 @@ public class Receita {
     private int id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Medico doctor;
+    private Medico medico;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Paciente patient; 
+    private Paciente paciente; 
     
-    @OneToMany(mappedBy = "prescription")
-    List<Prescricao> prescriptions;
+    @OneToMany(mappedBy = "receita")
+    private List<Prescricao> prescricoes;
 
-    private String realizacionDateTime;
-    private String expirationDate;
+    private String dataRealizacao;
+    private String dataExpiracao;
 
     public Receita() {
     };
 
-    public Receita(String id, String realizacionDateTime, String expirationDate) {
-
+    public Receita( String dataRealizacao, String dataExpiracao) {
+        this.dataRealizacao=dataRealizacao;
+        this.dataExpiracao=dataExpiracao;
     }
 
     /**
@@ -51,31 +52,73 @@ public class Receita {
     }
 
     /**
-     * @return String return the realizacionDateTime
+     * @return Medico return the medico
      */
-    public String getRealizacionDateTime() {
-        return realizacionDateTime;
+    public Medico getMedico() {
+        return medico;
     }
 
     /**
-     * @param realizacionDateTime the realizacionDateTime to set
+     * @param medico the medico to set
      */
-    public void setRealizacionDateTime(String realizacionDateTime) {
-        this.realizacionDateTime = realizacionDateTime;
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
     /**
-     * @return String return the expirationDate
+     * @return Paciente return the paciente
      */
-    public String getExpirationDate() {
-        return expirationDate;
+    public Paciente getPaciente() {
+        return paciente;
     }
 
     /**
-     * @param expirationDate the expirationDate to set
+     * @param paciente the paciente to set
      */
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    /**
+     * @return List<Prescricao> return the prescricoes
+     */
+    public List<Prescricao> getPrescricoes() {
+        return prescricoes;
+    }
+
+    /**
+     * @param prescricoes the prescricoes to set
+     */
+    public void setPrescricoes(List<Prescricao> prescricoes) {
+        this.prescricoes = prescricoes;
+    }
+
+    /**
+     * @return String return the dataRealizacao
+     */
+    public String getDataRealizacao() {
+        return dataRealizacao;
+    }
+
+    /**
+     * @param dataRealizacao the dataRealizacao to set
+     */
+    public void setDataRealizacao(String dataRealizacao) {
+        this.dataRealizacao = dataRealizacao;
+    }
+
+    /**
+     * @return String return the dataExpiracao
+     */
+    public String getDataExpiracao() {
+        return dataExpiracao;
+    }
+
+    /**
+     * @param dataExpiracao the dataExpiracao to set
+     */
+    public void setDataExpiracao(String dataExpiracao) {
+        this.dataExpiracao = dataExpiracao;
     }
 
 }

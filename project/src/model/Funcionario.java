@@ -21,26 +21,26 @@ public class Funcionario {
     @Column(unique = true)
     private String cpf;
 
-    private String name;
-    private String birthday;
-    private String admissionDate;
+    private String nome;
+    private String aniversario;
+    private String dataAdmissao;
 
     @ManyToOne
-    private Cargo office;
+    private Cargo cargo;
 
     @ManyToMany
     @JoinTable(name = "Funcionario_telefone")
-    private List<Telefone> phoneNumbers;
+    private List<Telefone> numerosTelefone;
 
     Funcionario() {
     }
 
-    Funcionario(String matricula, String name, String cpf, String birthday, String admissionDate) {
+    Funcionario(String matricula, String nome, String cpf, String aniversario, String dataAdmissao) {
         this.matricula = matricula;
-        this.name = name;
+        this.nome = nome;
         this.cpf = cpf;
-        this.birthday = birthday;
-        this.admissionDate = admissionDate;
+        this.aniversario = aniversario;
+        this.dataAdmissao = dataAdmissao;
     }
 
     /**
@@ -70,47 +70,76 @@ public class Funcionario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
     /**
-     * @return String return the name
+     * @return String return the nome
      */
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param name the name to set
+     * @param nome the nome to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**
-     * @return String return the birthday
+     * @return String return the aniversario
      */
-    public String getBirthday() {
-        return birthday;
+    public String getAniversario() {
+        return aniversario;
     }
 
     /**
-     * @param birthday the birthday to set
+     * @param aniversario the aniversario to set
      */
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setAniversario(String aniversario) {
+        this.aniversario = aniversario;
     }
 
     /**
-     * @return String return the admissionDate
+     * @return String return the dataAdmissao
      */
-    public String getAdmissionDate() {
-        return admissionDate;
+    public String getDataAdmissao() {
+        return dataAdmissao;
     }
 
     /**
-     * @param admissionDate the admissionDate to set
+     * @param dataAdmissao the dataAdmissao to set
      */
-    public void setAdmissionDate(String admissionDate) {
-        this.admissionDate = admissionDate;
+    public void setDataAdmissao(String dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
+    }
+
+
+    /**
+     * @return List<Telefone> return the numerosTelefone
+     */
+    public List<Telefone> getNumerosTelefone() {
+        return numerosTelefone;
+    }
+
+    /**
+     * @param numerosTelefone the numerosTelefone to set
+     */
+    public void setNumerosTelefone(List<Telefone> numerosTelefone) {
+        this.numerosTelefone = numerosTelefone;
+    }
+
+
+    /**
+     * @return Cargo return the cargo
+     */
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    /**
+     * @param cargo the cargo to set
+     */
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 
 }

@@ -16,20 +16,20 @@ public class Cargo {
     private int id;
 
     @Column(unique = true)
-    private String name;
+    private String nome;
 
-    private float salaryBase;
+    private float salarioBase;
 
-    @OneToMany(mappedBy ="office")
-    private List<Funcionario> employees;
+    @OneToMany(mappedBy ="cargos")
+    private List<Funcionario> empregados;
 
     public Cargo(){
     }
 
-    public Cargo(int id, String name, float salaryBase){
+    public Cargo(int id, String nome, float salarioBase){
         this.id = id;
-        this.name = name;
-        this.salaryBase = salaryBase;
+        this.nome = nome;
+        this.salarioBase = salarioBase;
     }
 
     /**
@@ -47,31 +47,46 @@ public class Cargo {
     }
 
     /**
-     * @return String return the name
+     * @return String return the nome
      */
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param name the name to set
+     * @param nome the nome to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**
-     * @return float return the salaryBase
+     * @return float return the salarioBase
      */
-    public float getSalaryBase() {
-        return salaryBase;
+    public float getSalarioBase() {
+        return salarioBase;
     }
 
     /**
-     * @param salaryBase the salaryBase to set
+     * @param salarioBase the salarioBase to set
      */
-    public void setSalaryBase(float salaryBase) {
-        this.salaryBase = salaryBase;
+    public void setSalarioBase(float salarioBase) {
+        this.salarioBase = salarioBase;
+    }
+
+
+    /**
+     * @return List<Funcionario> return the empregados
+     */
+    public List<Funcionario> getEmpregados() {
+        return empregados;
+    }
+
+    /**
+     * @param empregados the empregados to set
+     */
+    public void setEmpregados(List<Funcionario> empregados) {
+        this.empregados = empregados;
     }
 
 }

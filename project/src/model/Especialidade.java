@@ -17,27 +17,30 @@ public class Especialidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(mappedBy = "speciality", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
-    private List<Medico> doctor;
+    @OneToMany(mappedBy = "especialidade", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+    private List<Medico> medicos;
 
     @Column(unique = true)
-    private String description;
+    private String nome;
 
-    private float price;
+    private float preco;
 
     public Especialidade() {
     }
 
-    public Especialidade(int id, String description, float price) {
+    public Especialidade(int id, String nome, float preco) {
         this.id = id;
-        this.description = description;
-        this.price = price;
+        this.nome = nome;
+        this.preco = preco;
     }
 
     @Override
     public String toString() {
-        return "id: " + id + ", description: " + description + ", consultation price: " + price;
+        return "id: " + id + ", nome: " + nome + ", preco consulta: " + preco;
     }
+
+    
+
 
     /**
      * @return int return the id
@@ -54,31 +57,45 @@ public class Especialidade {
     }
 
     /**
-     * @return float return the price
+     * @return List<Medico> return the medicos
      */
-    public float getPrice() {
-        return price;
+    public List<Medico> getMedicos() {
+        return medicos;
     }
 
     /**
-     * @param price the price to set
+     * @param medicos the medicos to set
      */
-    public void setPrice(float price) {
-        this.price = price;
+    public void setMedicos(List<Medico> medicos) {
+        this.medicos = medicos;
     }
 
     /**
-     * @return String return the description
+     * @return String return the nome
      */
-    public String getDescription() {
-        return description;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param description the description to set
+     * @param nome the nome to set
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return float return the preco
+     */
+    public float getPreco() {
+        return preco;
+    }
+
+    /**
+     * @param preco the preco to set
+     */
+    public void setPreco(float preco) {
+        this.preco = preco;
     }
 
 }

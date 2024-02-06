@@ -15,20 +15,20 @@ public class Prescricao {
     private int id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Receita prescription;
+    private Receita receita;
 
     @ManyToOne
-    private Remedio remedy;
+    private Remedio remedio;
 
-    private String description;
+    private String descricao;
 
     public Prescricao() {
     }
 
-    public Prescricao(Remedio remedy, Receita prescrition, String description) {
-        this.prescription = prescrition;
-        this.remedy = remedy;
-        this.description = description;
+    public Prescricao(Remedio remedio, Receita prescrition, String descricao) {
+        this.receita = prescrition;
+        this.remedio = remedio;
+        this.descricao = descricao;
     }
 
     /**
@@ -45,46 +45,47 @@ public class Prescricao {
         this.id = id;
     }
 
+
     /**
-     * @return Receita return the prescription
+     * @return Receita return the receita
      */
-    public Receita getPrescription() {
-        return prescription;
+    public Receita getReceita() {
+        return receita;
     }
 
     /**
-     * @param prescription the prescription to set
+     * @param receita the receita to set
      */
-    public void setPrescription(Receita prescription) {
-        this.prescription = prescription;
+    public void setReceita(Receita receita) {
+        this.receita = receita;
     }
 
     /**
-     * @return Remedio return the remedy
+     * @return Remedio return the remedio
      */
-    public Remedio getRemedy() {
-        return remedy;
+    public Remedio getRemedio() {
+        return remedio;
     }
 
     /**
-     * @param remedy the remedy to set
+     * @param remedio the remedio to set
      */
-    public void setRemedy(Remedio remedy) {
-        this.remedy = remedy;
+    public void setRemedio(Remedio remedio) {
+        this.remedio = remedio;
     }
 
     /**
-     * @return String return the description
+     * @return String return the descricao
      */
-    public String getDescription() {
-        return description;
+    public String getDescricao() {
+        return descricao;
     }
 
     /**
-     * @param description the description to set
+     * @param descricao the descricao to set
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 }

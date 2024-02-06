@@ -22,27 +22,29 @@ public class Paciente {
     @JoinTable(name = "paciente_telefone")
     private List<Telefone> phoneNumbers;
 
-    private String name;
-    private int urgencyState;
-    private String birthday;
-    private String street;
-    private String district;
-    private String city;
+    private String nome;
+    //private int estadoUrgencia;
+    private String dataNascimento;
+    private String rua;
+    private String bairro;
+    private String cidade;
 
     public Paciente() {
     };
 
-    public Paciente(String cpf, String name, int urgencyState,
-            String birthday, String street,
-            String district, String city) {
+    public Paciente(String cpf, String nome, /* int estadoUrgencia,*/
+            String dataNascimento, String rua,
+            String bairro, String cidade) {
         this.cpf = cpf;
-        this.name = name;
-        this.urgencyState = urgencyState;
-        this.birthday = birthday;
-        this.street = street;
-        this.district = district;
-        this.city = city;
+        this.nome = nome;
+        //this.estadoUrgencia = estadoUrgencia;
+        this.dataNascimento = dataNascimento;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.cidade = cidade;
     }
+
+   
 
     /**
      * @return String return the cpf
@@ -59,87 +61,101 @@ public class Paciente {
     }
 
     /**
-     * @return String return the name
+     * @return List<Receita> return the prescription
      */
-    public String getName() {
-        return name;
+    public List<Receita> getPrescription() {
+        return prescription;
     }
 
     /**
-     * @param name the name to set
+     * @param prescription the prescription to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setPrescription(List<Receita> prescription) {
+        this.prescription = prescription;
     }
 
     /**
-     * @return int return the urgencyState
+     * @return List<Telefone> return the phoneNumbers
      */
-    public int getUrgencyState() {
-        return urgencyState;
+    public List<Telefone> getPhoneNumbers() {
+        return phoneNumbers;
     }
 
     /**
-     * @param urgencyState the urgencyState to set
+     * @param phoneNumbers the phoneNumbers to set
      */
-    public void setUrgencyState(int urgencyState) {
-        this.urgencyState = urgencyState;
+    public void setPhoneNumbers(List<Telefone> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 
     /**
-     * @return String return the birthday
+     * @return String return the nome
      */
-    public String getBirthday() {
-        return birthday;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param birthday the birthday to set
+     * @param nome the nome to set
      */
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**
-     * @return String return the street
+     * @return String return the dataNascimento
      */
-    public String getStreet() {
-        return street;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
     /**
-     * @param street the street to set
+     * @param dataNascimento the dataNascimento to set
      */
-    public void setStreet(String street) {
-        this.street = street;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     /**
-     * @return String return the district
+     * @return String return the rua
      */
-    public String getDistrict() {
-        return district;
+    public String getRua() {
+        return rua;
     }
 
     /**
-     * @param district the district to set
+     * @param rua the rua to set
      */
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     /**
-     * @return String return the city
+     * @return String return the bairro
      */
-    public String getCity() {
-        return city;
+    public String getBairro() {
+        return bairro;
     }
 
     /**
-     * @param city the city to set
+     * @param bairro the bairro to set
      */
-    public void setCity(String city) {
-        this.city = city;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    /**
+     * @return String return the cidade
+     */
+    public String getCidade() {
+        return cidade;
+    }
+
+    /**
+     * @param cidade the cidade to set
+     */
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
 }

@@ -17,7 +17,7 @@ public class Remedio {
     private int id;
 
     @Column(unique = true)
-    private String name;
+    private String nome;
 
     @OneToMany(mappedBy = "remedy", fetch=FetchType.LAZY)
     private List<Prescricao> prescricoes;
@@ -25,9 +25,9 @@ public class Remedio {
     Remedio() {
     }
 
-    Remedio(int id, String name) {
+    Remedio(int id, String nome) {
         this.id = id;
-        this.name = name;
+        this.nome = nome;
     }
 
     /**
@@ -44,18 +44,33 @@ public class Remedio {
         this.id = id;
     }
 
+
     /**
-     * @return String return the name
+     * @return String return the nome
      */
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param name the name to set
+     * @param nome the nome to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return List<Prescricao> return the prescricoes
+     */
+    public List<Prescricao> getPrescricoes() {
+        return prescricoes;
+    }
+
+    /**
+     * @param prescricoes the prescricoes to set
+     */
+    public void setPrescricoes(List<Prescricao> prescricoes) {
+        this.prescricoes = prescricoes;
     }
 
 }

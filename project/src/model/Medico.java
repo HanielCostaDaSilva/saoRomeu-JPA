@@ -15,33 +15,21 @@ public class Medico extends Funcionario {
     private String crm;
 
     @ManyToOne
-    private Especialidade speciality;
+    private Especialidade especialidade;
 
     @OneToMany(mappedBy = "doctor", fetch=FetchType.LAZY)
-    private List<Receita> prescription;
+    private List<Receita> receitas;
 
 
     public Medico() {
     };
 
-    public Medico(String matricula, String name, String cpf, String birthday, String admissionDate, String crm) {
+    public Medico(String matricula, String name, String cpf, String birthday, String admissionDate, String crm, Especialidade especialidade) {
         super(matricula, name, cpf, birthday, admissionDate);
         this.crm = crm;
+        this.especialidade = especialidade;
     }
 
-    /**
-     * @return Especialidade return the especialidade
-     */
-    public Especialidade getSpeciality() {
-        return speciality;
-    }
-
-    /**
-     * @param speciality the speciality to set
-     */
-    public void setspeciality(Especialidade speciality) {
-        this.speciality = speciality;
-    }
 
     /**
      * @return String return the crm
@@ -55,6 +43,35 @@ public class Medico extends Funcionario {
      */
     public void setCrm(String crm) {
         this.crm = crm;
+    }
+
+
+    /**
+     * @return Especialidade return the especialidade
+     */
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    /**
+     * @param especialidade the especialidade to set
+     */
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    /**
+     * @return List<Receita> return the receitas
+     */
+    public List<Receita> getReceitas() {
+        return receitas;
+    }
+
+    /**
+     * @param receitas the receitas to set
+     */
+    public void setReceitas(List<Receita> receitas) {
+        this.receitas = receitas;
     }
 
 }
