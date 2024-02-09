@@ -19,7 +19,7 @@ public class Remedio {
     @Column(unique = true)
     private String nome;
 
-    @OneToMany(mappedBy = "remedy", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "remedio", fetch=FetchType.LAZY)
     private List<Prescricao> prescricoes;
 
     Remedio() {
@@ -29,6 +29,7 @@ public class Remedio {
         this.id = id;
         this.nome = nome;
     }
+    
 
     /**
      * @return int return the id
